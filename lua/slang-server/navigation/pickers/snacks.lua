@@ -12,6 +12,9 @@ function M.open(opts)
       title = "Search hierarchy",
       live = true,
       supports_live = true,
+      -- mano fork: no preview pane; the results are hierarchy paths, not
+      -- files, so snacks had nothing to show ("Item has no `file`")
+      layout = { hidden = { "preview" } },
       finder = function(_, ctx)
          return function(cb)
             opts.search(ctx.filter.search, function(result)

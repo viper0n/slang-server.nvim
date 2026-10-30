@@ -80,6 +80,10 @@ local function prepare_node(node, parent_node)
       if hint then
          line:append(" " .. hint, hl.HIER_SUBTLE)
       end
+      -- mano fork: parameters also show their value
+      if node.kind == "Param" and node.value and node.value ~= "" then
+         line:append(" = " .. node.value, hl.HIER_VALUE)
+      end
    end
 
    return line
